@@ -19,7 +19,7 @@ const Body = ({ params }: { params: { moduleId: string } }) => {
 
   const fetchDocuments = async () => {
     const data = await getDocuments(id);
-    const files = data.filter((file: IDocument) => !file.isSystemGenerated);
+    const files = data.filter((file: IDocument) => file.fileBlobUrl !== '');
     setFiles(files);
   };
 
