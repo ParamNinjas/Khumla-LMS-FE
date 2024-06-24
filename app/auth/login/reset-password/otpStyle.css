@@ -1,0 +1,14 @@
+.square-otp-container {
+    display: flex;
+  }
+  
+  .square-otp-input {
+    width: 40px; /* You can adjust the width as per your preference */
+    height: 40px; /* You can adjust the height as per your preference */
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 18px;
+    margin: 5px;
+
+  }
+  

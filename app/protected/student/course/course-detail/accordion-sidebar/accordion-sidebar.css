@@ -1,0 +1,70 @@
+/* Styles for the Accordion Sidebar */
+.AccordionSidebar {
+    display: flex;
+  }
+
+  .video-detail-card {
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    height: 84px;
+    color: #F2F2F2;
+    background-color: #F2F2F2;
+  }
+
+  .text-muted {
+    vertical-align: middle; /* Adjust as needed */
+  }
+  
+  a.flex {
+    vertical-align: middle; /* Adjust as needed */
+  }
+  
+  
+  /* Styles for the Sidebar */
+  .Sidebar {
+    width: 200px;
+    padding: 10px;
+    padding-right: 0px;
+    border-right: 1px solid #ccc;
+    text-transform: uppercase;
+  }
+  
+  .Sidebar div {
+    cursor: pointer;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-weight: bolder;
+    font-size: 14px;
+    border-bottom: 1px solid #8E8E8E;
+  }
+  
+  .Sidebar div:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Styles for the Content on the right */
+  .Content {
+    flex: 1;
+    padding: 10px;
+    background-color: #E7E7E7;
+  }
+  
+  /* Optional: Styles for the selected option */
+  .SelectedOption {
+    font-weight: bold;
+    color: #007bff; /* or any color of your choice */
+  }
+  

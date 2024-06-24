@@ -1,0 +1,24 @@
+# s3_deploy.yml
+
+version: "0.1"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12  # Replace with the desired Node.js version if necessary
+  build:
+    commands:
+      - npm install  # If you're using npm, run this command to install dependencies
+      - npm run build  # Replace with your build script, if applicable
+  post_build:
+    commands:
+      - aws s3 sync dist/ s3://paramlms --acl bucket-owner-full-control 
+      # Replace "YOUR_S3_BUCKET_NAME" with the name of your S3 bucket
+      # The "sync" command syncs the "dist" folder to the specified S3 bucket.
+      # It uploads new and modified files, and deletes files that are not present in the "dist" folder.
+artifacts:
+    - name: dist
+      location: dist
+
+# Replace "YOUR_PROJECT_NAME" with your project name
+# This is the name you'll see in the AWS CodeBuild console
+# You can also use AWS CodePipeline to automate this process, but it goes beyond the scope of this example.

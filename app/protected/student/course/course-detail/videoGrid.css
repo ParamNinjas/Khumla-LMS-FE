@@ -1,0 +1,20 @@
+/* VideoCard.css */
+.video-card {
+    display: flex;
+    height: 10em;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    align-items: center;
+  }
+  .text-muted {
+    vertical-align: middle; /* Adjust as needed */
+  }
+  
+  a.flex {
+    vertical-align: middle; /* Adjust as needed */
+  }
+  

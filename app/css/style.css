@@ -1,0 +1,75 @@
+.navbar-togger {
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.user-icon {
+  font-size: xx-large;
+}
+
+.mdk-drawer__scrim__open {
+  opacity: 1;
+  left: 0;
+  right: 0;
+  transform: translateZ(0);
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  transition: opacity 0.2s ease;
+}
+
+.side-bar-bg,
+.nav-bar-bg {
+  background: black !important;
+}
+
+.mdk-drawer__content {
+  color: white;
+}
+
+.mdk-drawer__content .material-icons,
+.mdk-drawer__content .sidebar-menu-button:hover,
+.sidebar-brand:hover {
+  color: #90ea8e;
+}
+
+.arrow-right {
+  margin-top: 2px;
+  transition: transform 0.3s ease;
+}
+
+.arrow-right .rotate {
+  transform: rotate(90deg);
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 70%;
+    background-color: #f0f0f0 !important;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 6px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #4caf50;
+    transition: width 0.3s ease;
+}
+
+.progress-bar-text {
+    color: #000;
+    font-size: 14px;
+    margin-left: 10px;
+}

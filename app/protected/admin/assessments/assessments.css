@@ -1,0 +1,117 @@
+.header-titles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-titles>h5 {
+    margin-top: 10px;
+    width: 100vh;
+    border-bottom: 1px solid lightslategrey;
+    border-top: 1px solid lightslategrey;
+}
+
+.assessment-details>p {
+    width: 100vh;
+}
+
+.assessment-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-grade {
+    margin-left: 2em;
+}
+
+.grade-details {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    position: absolute;
+    right: 0%;
+    margin-right: 2em;
+    top: 60px;
+}
+
+.percentage{
+    margin-top: 20px !important;
+    font-size: xx-large;
+    font-weight: 600;
+    color: rgb(32, 189, 11);
+}
+
+.question_container{
+    background-color: azure;
+    padding: 20px;
+}
+
+.mark-section{
+    display: flex;
+    justify-content: space-evenly !important;
+    position: absolute;
+    right: 0;
+    margin-right: 5em;
+   
+}
+
+.answer-section{
+    display: flex;
+}
+
+.answer{
+    width: 70%;
+}
+
+.point-text-box{
+    width: 100px;
+    height:25px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.icons{
+    padding-left:40px;
+    display: flex;
+    justify-content: space-between !important;
+}
+
+.icons > p{
+    width: 100%;
+    font-weight: 600;
+    border-radius: 50%;
+    padding: 0 10px 0 10px;
+    border: 1px solid black;
+    background-color: rgb(32, 189, 11);
+    position: relative;
+    bottom: 0.5em;
+}
+
+.tick-icon{
+    width: 80%;
+    font-size: xx-large;
+    color: white;
+}
+
+.x-icon{
+    width: 80%;
+    text-align: center;
+    background-color:red !important;
+    padding-top: 5px !important;
+    margin-left: 5px;
+    color: white;
+}
+
+.confirm-btns{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 12em;
+    margin-top: 20px;
+
+}
+
+.confirm-btns :first-child{
+    margin-right: 5px;
+}

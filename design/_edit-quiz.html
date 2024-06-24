@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Analytics</title>
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7COswald:300,400,500,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="assets/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="assets/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="assets/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="assets/vendor/spinkit.css"
+              rel="stylesheet">
+        <link type="text/css"
+              href="assets/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="assets/css/app.css"
+              rel="stylesheet">
+
+        <!-- Dark Mode CSS (optional) -->
+        <link type="text/css"
+              href="assets/css/dark-mode.css"
+              rel="stylesheet">
+              <link type="text/css"
+              href="assets/css/quill.css"
+              rel="stylesheet">
+
+              <link type="text/css"
+              href="assets/css/select2.css"
+              rel="stylesheet">
+
+              
+
+    </head>
+
+    <body class="layout-app has-drawer-opened" data-new-gr-c-s-check-loaded="14.1119.0" data-gr-ext-installed="" style="">
+
+        <div class="preloader" style="display: none;">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+        </div>
+
+        <!-- Drawer Layout -->
+
+        <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push="" data-responsive-width="992px" data-domfactory-upgraded="mdk-drawer-layout">
+            <div class="mdk-drawer-layout__content page-content" style="transform: translate3d(0px, 0px, 0px);">
+
+                <!-- Header -->
+
+                <!-- Navbar -->
+
+                <div class="navbar navbar-expand pr-0 navbar-light border-bottom-2" id="default-navbar" data-primary="">
+
+                    <!-- Navbar Toggler -->
+
+                    <button class="navbar-toggler w-auto mr-16pt d-block d-lg-none rounded-0" type="button" data-toggle="sidebar">
+                        <span class="material-icons">short_text</span>
+                    </button>
+
+                    <!-- // END Navbar Toggler -->
+
+                    <!-- Navbar Brand -->
+
+                    <a href="index.html" class="navbar-brand mr-16pt d-lg-none">
+
+                        <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+
+                            <span class="avatar-title rounded bg-primary"><img src="../../public/images/illustration/student/128/white.svg" alt="logo" class="img-fluid"></span>
+
+                        </span>
+
+                        <span class="d-none d-lg-block">Luma</span>
+                    </a>
+
+                    <!-- // END Navbar Brand -->
+
+                    <span class="d-none d-md-flex align-items-center mr-16pt">
+
+                        <span class="avatar avatar-sm mr-12pt">
+
+                            <span class="avatar-title rounded navbar-avatar"><i class="material-icons">trending_up</i></span>
+
+                        </span>
+
+                        <small class="flex d-flex flex-column">
+                            <strong class="navbar-text-100">Earnings</strong>
+                            <span class="navbar-text-50">$12.3k</span>
+                        </small>
+                    </span>
+                    <span class="d-none d-md-flex align-items-center mr-16pt">
+
+                        <span class="avatar avatar-sm mr-12pt">
+
+                            <span class="avatar-title rounded navbar-avatar"><i class="material-icons">receipt</i></span>
+
+                        </span>
+
+                        <small class="flex d-flex flex-column">
+                            <strong class="navbar-text-100">Sales</strong>
+                            <span class="navbar-text-50">264</span>
+                        </small>
+                    </span>
+
+                    <div class="flex"></div>
+
+                    <!-- Switch Layout -->
+
+                    <a href="../Compact_App_Layout/instructor-edit-course.html" class="navbar-toggler navbar-toggler-custom align-items-center justify-content-center d-none d-lg-flex" data-toggle="tooltip" data-title="Switch to Compact Layout" data-placement="bottom" data-boundary="window" data-original-title="" title="">
+                        <span class="material-icons">swap_horiz</span>
+                    </a>
+
+                    <!-- // END Switch Layout -->
+
+                    <!-- Navbar Menu -->
+
+                    <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                        <!-- Notifications dropdown -->
+                        <div class="nav-item dropdown dropdown-notifications dropdown-xs-down-full" data-toggle="tooltip" data-title="Messages" data-placement="bottom" data-boundary="window" data-original-title="" title="">
+                            <button class="nav-link btn-flush dropdown-toggle" type="button" data-toggle="dropdown" data-caret="false">
+                                <i class="material-icons icon-24pt">mail_outline</i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div data-perfect-scrollbar="" class="position-relative ps">
+                                    <div class="dropdown-header"><strong>Messages</strong></div>
+                                    <div class="list-group list-group-flush mb-0">
+
+                                        <a href="javascript:void(0);" class="list-group-item list-group-item-action unread">
+                                            <span class="d-flex align-items-center mb-1">
+                                                <small class="text-black-50">5 minutes ago</small>
+
+                                                <span class="ml-auto unread-indicator bg-accent"></span>
+
+                                            </span>
+                                            <span class="d-flex">
+                                                <span class="avatar avatar-xs mr-2">
+                                                    <img src="../../public/images/people/110/woman-5.jpg" alt="people" class="avatar-img rounded-circle">
+                                                </span>
+                                                <span class="flex d-flex flex-column">
+                                                    <strong class="text-black-100">Michelle</strong>
+                                                    <span class="text-black-70">Clients loved the new design.</span>
+                                                </span>
+                                            </span>
+                                        </a>
+
+                                        <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+                                            <span class="d-flex align-items-center mb-1">
+                                                <small class="text-black-50">5 minutes ago</small>
+
+                                            </span>
+                                            <span class="d-flex">
+                                                <span class="avatar avatar-xs mr-2">
+                                                    <img src="../../public/images/people/110/woman-5.jpg" alt="people" class="avatar-img rounded-circle">
+                                                </span>
+                                                <span class="flex d-flex flex-column">
+                                                    <strong class="text-black-100">Michelle</strong>
+                                                    <span class="text-black-70">🔥 Superb job..</span>
+                                                </span>
+                                            </span>
+                                        </a>
+
+                                    </div>
+                                <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+                            </div>
+                        </div>
+                        <!-- // END Notifications dropdown -->
+
+                        <!-- Notifications dropdown -->
+                        <div class="nav-item ml-16pt dropdown dropdown-notifications dropdown-xs-down-full" data-toggle="tooltip" data-title="Notifications" data-placement="bottom" data-boundary="window" data-original-title="" title="">
+                            <button class="nav-link btn-flush dropdown-toggle" type="button" data-toggle="dropdown" data-caret="false">
+                                <i class="material-icons">notifications_none</i>
+                                <span class="badge badge-notifications badge-accent">2</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div data-perfect-scrollbar="" class="position-relative ps">
+                                    <div class="dropdown-header"><strong>System notifications</strong></div>
+                                    <div class="list-group list-group-flush mb-0">
+
+                                        <a href="javascript:void(0);" class="list-group-item list-group-item-action unread">
+                                            <span class="d-flex align-items-center mb-1">
+                                                <small class="text-black-50">3 minutes ago</small>
+
+                                                <span class="ml-auto unread-indicator bg-accent"></span>
+
+                                            </span>
+                                            <span class="d-flex">
+                                                <span class="avatar avatar-xs mr-2">
+                                                    <span class="avatar-title rounded-circle bg-light">
+                                                        <i class="material-icons font-size-16pt text-accent">account_circle</i>
+                                                    </span>
+                                                </span>
+                                                <span class="flex d-flex flex-column">
+
+                                                    <span class="text-black-70">Your profile information has not been synced correctly.</span>
+                                                </span>
+                                            </span>
+                                        </a>
+
+                                        <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+                                            <span class="d-flex align-items-center mb-1">
+                                                <small class="text-black-50">5 hours ago</small>
+
+                                            </span>
+                                            <span class="d-flex">
+                                                <span class="avatar avatar-xs mr-2">
+                                                    <span class="avatar-title rounded-circle bg-light">
+                                                        <i class="material-icons font-size-16pt text-primary">group_add</i>
+                                                    </span>
+                                                </span>
+                                                <span class="flex d-flex flex-column">
+                                                    <strong class="text-black-100">Adrian. D</strong>
+                                                    <span class="text-black-70">Wants to join your private group.</span>
+                                                </span>
+                                            </span>
+                                        </a>
+
+                                        <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+                                            <span class="d-flex align-items-center mb-1">
+                                                <small class="text-black-50">1 day ago</small>
+
+                                            </span>
+                                            <span class="d-flex">
+                                                <span class="avatar avatar-xs mr-2">
+                                                    <span class="avatar-title rounded-circle bg-light">
+                                                        <i class="material-icons font-size-16pt text-warning">storage</i>
+                                                    </span>
+                                                </span>
+                                                <span class="flex d-flex flex-column">
+
+                                                    <span class="text-black-70">Your deploy was successful.</span>
+                                                </span>
+                                            </span>
+                                        </a>
+
+                                    </div>
+                                <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+                            </div>
+                        </div>
+                        <!-- // END Notifications dropdown -->
+
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown" data-caret="false">
+
+                                <span class="avatar avatar-sm mr-8pt2">
+
+                                    <span class="avatar-title rounded-circle bg-primary"><i class="material-icons">account_box</i></span>
+
+                                </span>
+
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="dropdown-header"><strong>Account</strong></div>
+                                <a class="dropdown-item" href="edit-account.html">Edit Account</a>
+                                <a class="dropdown-item" href="billing.html">Billing</a>
+                                <a class="dropdown-item" href="billing-history.html">Payments</a>
+                                <a class="dropdown-item" href="login.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- // END Navbar Menu -->
+
+                </div>
+
+                <!-- // END Navbar -->
+
+                <!-- // END Header -->
+
+                <div class="pt-32pt">
+                    <div class="container page__container d-flex flex-column flex-md-row align-items-center text-center text-sm-left">
+                        <div class="flex d-flex flex-column flex-sm-row align-items-center">
+
+                            <div class="mb-24pt mb-sm-0 mr-sm-24pt">
+                                <h2 class="mb-0">Edit Course</h2>
+
+                                <ol class="breadcrumb p-0 m-0">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+
+                                    <li class="breadcrumb-item active">
+
+                                        Edit Course
+
+                                    </li>
+
+                                </ol>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- BEFORE Page Content -->
+
+                <!-- // END BEFORE Page Content -->
+
+                <!-- Page Content -->
+
+                <div class="page-section border-bottom-2">
+                    <div class="container page__container">
+                        <div class="row align-items-start">
+                            <div class="col-md-8">
+
+                                <div class="page-separator">
+                                    <div class="page-separator__text">Questions</div>
+                                </div>
+                                <ul class="list-group stack mb-40pt">
+                                    <li class="list-group-item d-flex">
+                                        <i class="material-icons text-70 icon-16pt icon--left">drag_handle</i>
+                                        <div class="flex d-flex flex-column">
+                                            <div class="card-title mb-4pt">Question 1 of 2</div>
+                                            <div class="card-subtitle text-70 paragraph-max mb-16pt">An angular 2 project written in typescript is* transpiled to javascript duri*ng the build process. Which of the following additional features are provided to the developer while programming on typescript over javascript?</div>
+                                            <div>
+                                                <a href="" class="chip chip-light d-inline-flex align-items-center"><i class="material-icons icon-16pt icon--left">keyboard_arrow_down</i> Answers</a>
+                                                <div class="chip chip-outline-secondary">Single Answer</div>
+                                            </div>
+                                        </div>
+                                        <span class="text-muted mx-12pt">800 pt</span>
+
+                                        <div class="dropdown">
+                                            <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted"><i class="material-icons">more_horiz</i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a href="javascript:void(0)" class="dropdown-item">Edit Question</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a href="javascript:void(0)" class="dropdown-item text-danger">Delete Question</a>
+                                            </div>
+                                        </div>
+
+                                    </li>
+                                    <li class="list-group-item d-flex">
+                                        <i class="material-icons text-70 icon-16pt icon--left">drag_handle</i>
+                                        <div class="flex d-flex flex-column">
+                                            <div class="card-title mb-4pt">Question 2 of 2</div>
+                                            <div class="card-subtitle text-70 paragraph-max mb-8pt">What will be the output of below program?</div>
+
+                                            <code class="highlight js mb-16pt bg-transparent hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>&nbsp;<span class="hljs-title">f</span>(<span class="hljs-params">input:&nbsp;boolean</span>)&nbsp;</span>{<br>
+                                                &nbsp;&nbsp;<span class="hljs-keyword">let</span>&nbsp;a&nbsp;=&nbsp;<span class="hljs-number">100</span>;<br>
+                                                <br>
+                                                &nbsp;&nbsp;<span class="hljs-keyword">if</span>&nbsp;(input)&nbsp;{<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword">let</span>&nbsp;b&nbsp;=&nbsp;a&nbsp;+&nbsp;<span class="hljs-number">1</span>;<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword">return</span>&nbsp;b;<br>
+                                                &nbsp;&nbsp;}<br>
+                                                &nbsp;&nbsp;<span class="hljs-keyword">return</span>&nbsp;b;<br>
+                                                }</code>
+
+                                            <div class="d-flex">
+                                                <a href="" class="chip chip-light d-inline-flex align-items-center"><i class="material-icons icon-16pt icon--left">keyboard_arrow_down</i> Answers</a>
+                                                <div class="chip chip-outline-secondary">Single Answer</div>
+                                                <div class="chip chip-outline-secondary">Code</div>
+                                            </div>
+                                        </div>
+                                        <span class="text-muted mx-12pt">800 pt</span>
+
+                                        <div class="dropdown">
+                                            <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted"><i class="material-icons">more_horiz</i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a href="javascript:void(0)" class="dropdown-item">Edit Question</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a href="javascript:void(0)" class="dropdown-item text-danger">Delete Question</a>
+                                            </div>
+                                        </div>
+
+                                    </li>
+                                </ul>
+
+                                <div class="page-separator">
+                                    <div class="page-separator__text">New Question</div>
+                                </div>
+                                <div class="card card-body">
+
+                                    <div class="form-group">
+                                        <label class="form-label">Question</label>
+                                        <!-- <textarea class="form-control" rows="3" placeholder="Question"></textarea> -->
+                                        <div class="ql-toolbar ql-snow"><span class="ql-formats"><span class="ql-header ql-picker"><span class="ql-picker-label" tabindex="0" role="button" aria-expanded="false" aria-controls="ql-picker-options-0"><svg viewBox="0 0 18 18"> <polygon class="ql-stroke" points="7 11 9 13 11 11 7 11"></polygon> <polygon class="ql-stroke" points="7 7 9 5 11 7 7 7"></polygon> </svg></span><span class="ql-picker-options" aria-hidden="true" tabindex="-1" id="ql-picker-options-0"><span tabindex="0" role="button" class="ql-picker-item" data-value="1"></span><span tabindex="0" role="button" class="ql-picker-item" data-value="2"></span><span tabindex="0" role="button" class="ql-picker-item" data-value="3"></span><span tabindex="0" role="button" class="ql-picker-item"></span></span></span><select class="ql-header" style="display: none;"><option value="1"></option><option value="2"></option><option value="3"></option><option selected="selected"></option></select></span><span class="ql-formats"><button type="button" class="ql-bold"><svg viewBox="0 0 18 18"> <path class="ql-stroke" d="M5,4H9.5A2.5,2.5,0,0,1,12,6.5v0A2.5,2.5,0,0,1,9.5,9H5A0,0,0,0,1,5,9V4A0,0,0,0,1,5,4Z"></path> <path class="ql-stroke" d="M5,9h5.5A2.5,2.5,0,0,1,13,11.5v0A2.5,2.5,0,0,1,10.5,14H5a0,0,0,0,1,0,0V9A0,0,0,0,1,5,9Z"></path> </svg></button><button type="button" class="ql-italic"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="13" y1="4" y2="4"></line> <line class="ql-stroke" x1="5" x2="11" y1="14" y2="14"></line> <line class="ql-stroke" x1="8" x2="10" y1="14" y2="4"></line> </svg></button><button type="button" class="ql-underline"><svg viewBox="0 0 18 18"> <path class="ql-stroke" d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"></path> <rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="12" x="3" y="15"></rect> </svg></button><button type="button" class="ql-link"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="11" y1="7" y2="11"></line> <path class="ql-even ql-stroke" d="M8.9,4.577a3.476,3.476,0,0,1,.36,4.679A3.476,3.476,0,0,1,4.577,8.9C3.185,7.5,2.035,6.4,4.217,4.217S7.5,3.185,8.9,4.577Z"></path> <path class="ql-even ql-stroke" d="M13.423,9.1a3.476,3.476,0,0,0-4.679-.36,3.476,3.476,0,0,0,.36,4.679c1.392,1.392,2.5,2.542,4.679.36S14.815,10.5,13.423,9.1Z"></path> </svg></button></span><span class="ql-formats"><button type="button" class="ql-list" value="ordered"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="15" y1="4" y2="4"></line> <line class="ql-stroke" x1="7" x2="15" y1="9" y2="9"></line> <line class="ql-stroke" x1="7" x2="15" y1="14" y2="14"></line> <line class="ql-stroke ql-thin" x1="2.5" x2="4.5" y1="5.5" y2="5.5"></line> <path class="ql-fill" d="M3.5,6A0.5,0.5,0,0,1,3,5.5V3.085l-0.276.138A0.5,0.5,0,0,1,2.053,3c-0.124-.247-0.023-0.324.224-0.447l1-.5A0.5,0.5,0,0,1,4,2.5v3A0.5,0.5,0,0,1,3.5,6Z"></path> <path class="ql-stroke ql-thin" d="M4.5,10.5h-2c0-.234,1.85-1.076,1.85-2.234A0.959,0.959,0,0,0,2.5,8.156"></path> <path class="ql-stroke ql-thin" d="M2.5,14.846a0.959,0.959,0,0,0,1.85-.109A0.7,0.7,0,0,0,3.75,14a0.688,0.688,0,0,0,.6-0.736,0.959,0.959,0,0,0-1.85-.109"></path> </svg></button><button type="button" class="ql-list" value="bullet"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="6" x2="15" y1="4" y2="4"></line> <line class="ql-stroke" x1="6" x2="15" y1="9" y2="9"></line> <line class="ql-stroke" x1="6" x2="15" y1="14" y2="14"></line> <line class="ql-stroke" x1="3" x2="3" y1="4" y2="4"></line> <line class="ql-stroke" x1="3" x2="3" y1="9" y2="9"></line> <line class="ql-stroke" x1="3" x2="3" y1="14" y2="14"></line> </svg></button></span><span class="ql-formats"><button type="button" class="ql-clean"><svg class="" viewBox="0 0 18 18"> <line class="ql-stroke" x1="5" x2="13" y1="3" y2="3"></line> <line class="ql-stroke" x1="6" x2="9.35" y1="12" y2="3"></line> <line class="ql-stroke" x1="11" x2="15" y1="11" y2="15"></line> <line class="ql-stroke" x1="15" x2="11" y1="11" y2="15"></line> <rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="7" x="2" y="14"></rect> </svg></button></span></div><div style="height: 150px;" class="mb-0 ql-container ql-snow" data-toggle="quill" data-quill-placeholder="Question"><div class="ql-editor" data-gramm="false" contenteditable="true" data-placeholder="Question"><p>An angular 2 project written in typescript is* transpiled to javascript duri*ng the build process. Which of the following additional features are provided to the developer while programming on typescript over javascript?</p></div><div class="ql-clipboard" contenteditable="true" tabindex="-1"></div><div class="ql-tooltip ql-hidden"><a class="ql-preview" rel="noopener noreferrer" target="_blank" href="about:blank"></a><input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a class="ql-remove"></a></div></div>
+                                        <small class="form-text text-muted">Shortly describe the question.</small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">Question Type</label>
+                                        <select name="category" class="form-control custom-select">
+                                            <option value="vuejs">Multiple Answer</option>
+                                            <option value="vuejs">Single Answer</option>
+                                            <option value="vuejs">Essay</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="select01">Answers</label>
+                                        <select id="select01" data-toggle="select" data-multiple="true" multiple="" class="form-control select2-hidden-accessible" data-select2-id="select01" tabindex="-1" aria-hidden="true">
+                                            <option selected="" data-select2-id="2">My first option</option>
+                                            <option selected="" data-select2-id="3">Another option</option>
+                                            <option>Third option is here</option>
+                                        </select><span class="select2 select2-container select2-container--bootstrap4" dir="ltr" data-select2-id="1" style="width: 565.992px;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false"><ul class="select2-selection__rendered"><li class="select2-selection__choice" title="My first option" data-select2-id="4"><span class="select2-selection__choice__remove" role="presentation">×</span>My first option</li><li class="select2-selection__choice" title="Another option" data-select2-id="5"><span class="select2-selection__choice__remove" role="presentation">×</span>Another option</li><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" placeholder="" style="width: 0.75em;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Completion Points</label>
+                                        <input type="text" class="form-control" value="1000">
+                                    </div>
+                                    <div>
+                                        <a href="#" class="btn btn-outline-secondary">Add Question</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-4">
+
+                                <div class="card">
+                                    <div class="card-header text-center">
+                                        <a href="#" class="btn btn-accent">Save changes</a>
+                                    </div>
+                                    <div class="list-group list-group-flush">
+                                        <div class="list-group-item d-flex">
+                                            <a class="flex" href="#"><strong>Save Draft</strong></a>
+                                            <i class="material-icons text-muted">check</i>
+                                        </div>
+                                        <div class="list-group-item">
+                                            <a href="#" class="text-danger"><strong>Delete Quiz</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="page-separator">
+                                    <div class="page-separator__text">Courses</div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="form-group mb-0">
+                                            <label class="form-label">Add to course</label>
+                                            <select name="course" id="course" data-toggle="select" data-tags="false" data-multiple="true" data-minimum-results-for-search="0" class="form-control select2-hidden-accessible" data-placeholder="Select course ..." data-select2-id="course" multiple="" tabindex="-1" aria-hidden="true">
+                                                <option data-avatar-src="../../public/images/paths/angular_40x40@2x.png" selected="" data-select2-id="7">Angular Fundamentals</option>
+                                                <option data-avatar-src="../../public/images/paths/swift_40x40@2x.png">Build an iOS Application in Swift</option>
+                                            </select><span class="select2 select2-container select2-container--bootstrap4" dir="ltr" data-select2-id="6" style="width: 253.992px;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false"><ul class="select2-selection__rendered"><li class="select2-selection__choice" title="Angular Fundamentals" data-select2-id="8"><span class="select2-selection__choice__remove" role="presentation">×</span>Angular Fundamentals</li><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" placeholder="" style="width: 0.75em;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // END Page Content -->
+
+                <!-- Footer -->
+
+                <div class="bg-white border-top-2 mt-auto">
+                    <div class="container page__container page-section d-flex flex-column">
+                        <p class="text-70 brand mb-24pt">
+                            <img class="brand-icon" src="../../public/images/logo/black-70@2x.png" width="30" alt="Luma"> Luma
+                        </p>
+                        <p class="measure-lead-max text-50 small mr-8pt">Luma is a beautifully crafted user interface for modern Education Platforms, including Courses &amp; Tutorials, Video Lessons, Student and Teacher Dashboard, Curriculum Management, Earnings and Reporting, ERP, HR, CMS, Tasks, Projects, eCommerce and more.</p>
+                        <p class="mb-8pt d-flex">
+                            <a href="" class="text-70 text-underline mr-8pt small">Terms</a>
+                            <a href="" class="text-70 text-underline small">Privacy policy</a>
+                        </p>
+                        <p class="text-50 small mt-n1 mb-0">Copyright 2019 © All rights reserved.</p>
+                    </div>
+                </div>
+
+                <!-- // END Footer -->
+
+            </div>
+
+            <!-- // END drawer-layout__content -->
+
+            <!-- Drawer -->
+
+            <div class="mdk-drawer js-mdk-drawer" id="default-drawer" data-align="start" data-position="left" data-domfactory-upgraded="mdk-drawer" data-persistent="" data-opened=""><div class="mdk-drawer__scrim" style=""></div>
+                <div class="mdk-drawer__content" style="">
+                    <div class="sidebar sidebar-dark sidebar-left"
+                    data-perfect-scrollbar>
+
+                   <!-- Navbar toggler -->
+                   <a href="compact-analytics.html"
+                      class="navbar-toggler navbar-toggler-right navbar-toggler-custom d-flex align-items-center justify-content-center position-absolute right-0 top-0"
+                      data-toggle="tooltip"
+                      data-title="Switch to Compact Vertical Layout"
+                      data-placement="right"
+                      data-boundary="window">
+                       <span class="material-icons">sync_alt</span>
+                   </a>
+
+                   <a href="index.html"
+                      class="sidebar-brand ">
+                       <img class="sidebar-brand-icon"
+                            src="assets/images/logo/accent-teal-100@2x.png"
+                            alt="Khumla">
+                       <span>Khumla</span>
+                   </a>
+
+                   <div class="sidebar-account mx-16pt mb-16pt dropdown">
+                       <a href="#"
+                          class="nav-link d-flex align-items-center dropdown-toggle"
+                          data-toggle="dropdown"
+                          data-caret="false">
+                           <img width="32"
+                                height="32"
+                                class="rounded-circle mr-8pt"
+                                src="assets/images/people/50/guy-3.jpg"
+                                alt="account" />
+                           <span class="flex d-flex flex-column mr-8pt">
+                               <span class="text-black-100">Laza Bogdan</span>
+                               <small class="text-black-50">Administrator</small>
+                           </span>
+                           <i class="material-icons text-black-20 icon-16pt">keyboard_arrow_down</i>
+                       </a>
+                       <div class="dropdown-menu dropdown-menu-full dropdown-menu-caret-center">
+                           <div class="dropdown-header"><strong>Account</strong></div>
+                           <a class="dropdown-item"
+                              href="edit-account.html">Edit Account</a>
+                           <a class="dropdown-item"
+                              href="billing.html">Billing</a>
+                           <a class="dropdown-item"
+                              href="billing-history.html">Payments</a>
+                           <a class="dropdown-item"
+                              href="login.html">Logout</a>
+                           <div class="dropdown-divider"></div>
+                           <div class="dropdown-header"><strong>Select company</strong></div>
+                           <a href=""
+                              class="dropdown-item active d-flex align-items-center">
+
+                               <div class="avatar avatar-sm mr-8pt">
+
+                                   <span class="avatar-title rounded bg-primary">FM</span>
+
+                               </div>
+
+                               <small class="ml-4pt flex">
+                                   <span class="d-flex flex-column">
+                                       <strong class="text-black-100">FrontendMatter Inc.</strong>
+                                       <span class="text-black-50">Administrator</span>
+                                   </span>
+                               </small>
+                           </a>
+                           <a href=""
+                              class="dropdown-item d-flex align-items-center">
+
+                               <div class="avatar avatar-sm mr-8pt">
+
+                                   <span class="avatar-title rounded bg-accent">HH</span>
+
+                               </div>
+
+                               <small class="ml-4pt flex">
+                                   <span class="d-flex flex-column">
+                                       <strong class="text-black-100">Khumla Inc.</strong>
+                                       <span class="text-black-50">Publisher</span>
+                                   </span>
+                               </small>
+                           </a>
+                       </div>
+                   </div>
+
+                   <form action="index.html"
+                         class="search-form flex-shrink-0 search-form--black sidebar-m-b sidebar-p-l mx-16pt pr-0">
+                       <input type="text"
+                              class="form-control pl-0"
+                              placeholder="Search">
+                       <button class="btn"
+                               type="submit"><i class="material-icons">search</i></button>
+                   </form>
+
+                   <div class="sidebar-heading">Overview</div>
+                   <ul class="sidebar-menu">
+                       <li class="sidebar-menu-item">
+                           <a class="sidebar-menu-button"
+                              href="_courses.html">
+                               <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">insert_chart_outlined</span>
+                               <span class="sidebar-menu-text">Dashboard</span>
+                           </a>
+                       </li>
+
+                   </ul>
+
+                   <div class="sidebar-heading">Courses</div>
+                   <ul class="sidebar-menu">
+                       <li class="sidebar-menu-item">
+                           <a class="sidebar-menu-button js-sidebar-collapse"
+                              data-toggle="collapse"
+                              href="#enterprise_menu">
+                               <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">donut_large</span>
+                               Courses
+                               <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                           </a>
+                           <ul class="sidebar-submenu collapse sm-indent"
+                               id="enterprise_menu">
+                               <li class="sidebar-menu-item">
+                                   <a class="sidebar-menu-button"
+                                      href="_courses.html">
+                                       <span class="sidebar-menu-text">My courses</span>
+                                   </a>
+                               </li>
+                               <li class="sidebar-menu-item">
+                                   <a class="sidebar-menu-button"
+                                      href="_manage-quiz.html">
+                                       <span class="sidebar-menu-text">My quizes</span>
+                                   </a>
+                               </li>
+                            
+                           </ul>
+                       </li>
+  
+                   </ul> 
+
+               </div>
+                </div>
+            </div>
+
+            <!-- // END Drawer -->
+
+        </div>
+
+        <!-- // END Drawer Layout -->
+
+        <!-- jQuery -->
+        <script src="assets/vendor/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="assets/vendor/popper.min.js"></script>
+        <script src="assets/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="assets/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="assets/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="assets/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="assets/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="assets/js/preloader.js"></script>
+
+        <!-- Quill -->
+        <script src="assets/vendor/quill.min.js"></script>
+        <script src="assets/js/quill.js"></script>
+        <!-- Select2 -->
+        <script src="assets/vendor/select2/select2.min.js"></script>
+        <script src="assets/js/select2.js"></script>
+
+    
+
+<iframe id="sandbox-iframe" src="chrome-extension://iapifmceeokikomajpccajhjpacjmibe/html/sandbox.html" style="display: none;"></iframe><template id="auto-clicker-autofill-popup">
+  <style>
+    @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css);
+    @import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500&subset=latin-ext);
+    #body {
+      background: white;
+      border-radius: 5px;
+      box-shadow: 0 30px 50px 0 rgb(44 49 59 / 20%);
+      overflow: hidden;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+      min-width: 250px;
+      max-width: 400px;
+    }
+    .modal-dialog {
+      margin: auto;
+    }
+    .modal-content {
+      border: none;
+    }
+    /*Header*/
+    .modal-header {
+      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      padding-left: 0;
+      height: 47px;
+      background: rgba(112.520718, 44.062154, 249.437846, 0.1);
+      color: #fff;
+      border: none;
+    }
+    .modal-header button.btn {
+      color: #712cf9;
+      width: 1em;
+      height: 1em;
+      display: flex;
+      box-sizing: content-box;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      --bs-btn-close-opacity: 1;
+      --bs-btn-close-hover-opacity: 0.75;
+      --bs-btn-close-focus-shadow: 0 0 0 0.25em rgba(13, 110, 253, 0.25);
+      opacity: var(--bs-btn-close-opacity);
+    }
+    .modal-header button.btn svg {
+      width: inherit;
+      height: inherit;
+    }
+    .modal-header button.btn:focus {
+      box-shadow: var(--bs-btn-close-focus-shadow);
+    }
+    .modal-header button.btn:hover {
+      opacity: var(--bs-btn-close-hover-opacity);
+    }
+    .modal-header button.expand .bi-arrows-expand {
+      display: block !important;
+    }
+    .modal-header button.expand .bi-dash-lg {
+      display: none;
+    }
+    .modal-header .modal-title {
+      padding-left: 2em;
+      color: #712cf9;
+      position: relative;
+      font-size: 1em;
+    }
+    .modal-header .modal-title::before {
+      content: '';
+      position: absolute;
+      left: 0.75em;
+      top: calc(50% - 0.375em);
+      display: block;
+      width: 0.75em;
+      height: 0.75em;
+      border-radius: 50%;
+      background: red;
+      cursor: pointer;
+      box-shadow: 0 0 0 rgba(255, 0, 0, 0.4);
+      animation: pulse 2s infinite;
+    }
+    @-webkit-keyframes pulse {
+      0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+      }
+      70% {
+        -webkit-box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+      }
+      100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+      }
+    }
+    @keyframes pulse {
+      0% {
+        -moz-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+      }
+      70% {
+        -moz-box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+        box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+      }
+      100% {
+        -moz-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+      }
+    }
+    /*Body*/
+    .modal-body {
+      max-height: calc(100vh - 7em);
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 0.5em 0;
+    }
+    td div {
+      vertical-align: middle;
+      width: 180px;
+      line-height: 24px;
+    }
+    tr button {
+      visibility: hidden;
+    }
+    tr:hover button {
+      visibility: visible;
+    }
+    /*Footer*/
+    .modal-footer {
+      padding: 0;
+      --bs-bg-opacity: 1;
+      background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity)) !important;
+    }
+    .modal-footer a {
+      display: flex;
+      align-items: center;
+    }
+    .modal-footer a svg {
+      margin-right: 0.15em;
+    }
+    .modal-footer a:hover {
+      color: #712cf9 !important;
+    }
+  </style>
+  <div id="body" class="modal position-static d-block" data-bs-theme="light">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <header class="modal-header">
+          <h6 class="modal-title text-truncate">Auto Clicker - AutoFill</h6>
+          <div class="d-flex justify-content-center align-items-center">
+            <button type="button" class="btn ms-2" aria-label="collapse">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand" style="display: none" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8ZM7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2ZM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10Z"></path>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"></path>
+              </svg>
+            </button>
+            <button type="button" class="btn ms-2" data-bs-dismiss="modal" aria-label="Close">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+              </svg>
+            </button>
+          </div>
+        </header>
+        <main class="modal-body" id="collapse-main">
+          <slot name="actions" hidden="">
+            <table class="table table-sm table-hover mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">Name/Element</th>
+                  <th scope="col">Value</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider"></tbody>
+            </table>
+          </slot>
+          <slot name="no-actions">
+            <div class="px-2">
+              <div class="card w-100">
+                <div class="card-body">
+                  <h5 class="card-title mb-3 text-primary">Start filling form...</h5>
+                  <hr>
+                  <h6 class="card-subtitle mb-2 text-muted">If you have already filled form</h6>
+                  <button type="button" auto-generate-config="" class="btn btn-sm btn-outline-secondary">Already Filled ?</button>
+                </div>
+              </div>
+            </div>
+          </slot>
+        </main>
+        <footer class="modal-footer justify-content-center" id="collapse-footer">
+          <ul class="nav justify-content-between w-100">
+            <li class="nav-item">
+              <a href="https://getautoclicker.com/docs/3.x/getting-started" class="nav-link px-2 text-muted" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-richtext" viewBox="0 0 16 16">
+                  <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208zM5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"></path>
+                  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"></path>
+                </svg>
+                Docs
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="https://discord.gg/ubMBeX3" class="nav-link px-2 text-muted" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                  <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z"></path>
+                </svg>
+                Chat
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="https://dev.getautoclicker.com/" class="nav-link px-2 text-muted" target="_blank" id="settings">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                  <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"></path>
+                </svg>
+                Advance
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="https://github.com/sponsors/Dhruv-Techapps" class="nav-link px-2 text-muted" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-balloon-heart text-danger" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="m8 2.42-.717-.737c-1.13-1.161-3.243-.777-4.01.72-.35.685-.451 1.707.236 3.062C4.16 6.753 5.52 8.32 8 10.042c2.479-1.723 3.839-3.29 4.491-4.577.687-1.355.587-2.377.236-3.061-.767-1.498-2.88-1.882-4.01-.721L8 2.42Zm-.49 8.5c-10.78-7.44-3-13.155.359-10.063.045.041.089.084.132.129.043-.045.087-.088.132-.129 3.36-3.092 11.137 2.624.357 10.063l.235.468a.25.25 0 1 1-.448.224l-.008-.017c.008.11.02.202.037.29.054.27.161.488.419 1.003.288.578.235 1.15.076 1.629-.157.469-.422.867-.588 1.115l-.004.007a.25.25 0 1 1-.416-.278c.168-.252.4-.6.533-1.003.133-.396.163-.824-.049-1.246l-.013-.028c-.24-.48-.38-.758-.448-1.102a3.177 3.177 0 0 1-.052-.45l-.04.08a.25.25 0 1 1-.447-.224l.235-.468ZM6.013 2.06c-.649-.18-1.483.083-1.85.798-.131.258-.245.689-.08 1.335.063.244.414.198.487-.043.21-.697.627-1.447 1.359-1.692.217-.073.304-.337.084-.398Z"></path>
+                </svg>
+                Sponsors
+              </a>
+            </li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+  </div>
+</template>
+<template id="auto-clicker-autofill-popup-tr">
+  <tr>
+    <td><div class="text-truncate"></div></td>
+    <td><div class="text-truncate"></div></td>
+    <td>
+      <button type="button" class="btn-close" data-bs-dismiss="tr" aria-label="Close"></button>
+    </td>
+  </tr>
+</template>
+</body>
+
+</html>
