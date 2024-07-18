@@ -1,0 +1,63 @@
+{
+    "title": "Sample Course 1",
+    "description": "This is a sample course for testing purposes.",
+    "createdDate": "2024/01/12 11:19:15",
+    "creatingUser": "user-456",
+    "creatingUserName": null,
+    "sections": [
+        {
+            "id": "section-789",
+            "title": "Introduction",
+            "courseId": "course-123",
+            "order": 1,
+            "state": 0,
+            "competency": "Introduction to the Course",
+            "createdDate": "2024/01/12 11:19:15",
+            "creatingUser": "user-456",
+            "modifiedDate": "2024/01/12 11:19:15",
+            "modifyingUser": "user-789",
+            "modules": [
+                {
+                    "id": "module-101",
+                    "title": "Module 1",
+                    "description": "This module covers the basics.",
+                    "notes": "These are some additional notes for Module 1.",
+                    "creatingUser": "user-456",
+                    "creatingDate": null,
+                    "modifyingUser": "user-789",
+                    "modifiedDate": "2024/01/12 11:19:15",
+                    "sectionId": "section-789",
+                    "order": 1,
+                    "state": 0,
+                    "videos": [
+                        {
+                            "id": "video-201",
+                            "title": "Introduction Video",
+                            "duration": "5:30",
+                            "moduleId": "module-101",
+                            "order": 1,
+                            "state": 0,
+                            "videoLink": "https://example.com/videos/intro",
+                            "type": 2,
+                            "videoFile": "video-201.mp4",
+                            "createdDate": "2024/01/12 11:19:15",
+                            "creatingUser": "user-456",
+                            "modifiedDate": "2024/01/12 11:19:15",
+                            "modifyingUser": "user-789",
+                            "thumbnailImage": "thumbnail-201.jpg",
+                            "length": "5 minutes",
+                            "format": "mp4",
+                            "size": "50 MB",
+                            "description": null
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "state": 0,
+    "logo": "logo.png",
+    "courseImage": "course_image.jpg",
+    "bannerImage": "banner_image.jpg",
+    "modifyingUser": "user-789"
+    }

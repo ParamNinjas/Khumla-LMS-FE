@@ -1,0 +1,41 @@
+[{
+    "order": 1,
+    "question": "An angular 2 project written in typescript is* transpiled to javascript duri*ng the build process. Which of the following additional features are provided to the developer while programming on typescript over javascript?",
+    "type":"select",
+    "questionType": 3,
+    "image":"",
+    "options": [{
+            "name": "Ability to use newer syntax and offers reliability",
+            "value": "1"
+        },
+        {
+            "name": "Compatibility",
+            "value": "2"
+        },
+        {
+            "name": "Usage of missing features",
+            "value": "3"
+        }
+    ]
+},
+{
+    "order": 2,
+    "question": "An angular 2xxxxxx project written in typescript is* transpiled to javascript duri*ng the build process. Which of the following additional features are provided to the developer while programming on typescript over javascript?",
+    "type":"select",
+    "questionType": 3,
+    "image":"",
+    "options": [{
+            "name": "Ability2 to use newer syntax and offers reliability",
+            "value": "1"
+        },
+        {
+            "name": "Compatibility2",
+            "value": "2"
+        },
+        {
+            "name": "Usage2 of missing features",
+            "value": "3"
+        }
+    ]
+}
+]
