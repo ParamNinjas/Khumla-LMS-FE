@@ -37,6 +37,7 @@ const TableRow = ({ document }: { document: any }) => {
 
   const generateVideoScriptWithProgress = async (e: any) => {
     setProgress(25);
+    console.log("In progress")
     try {
       await generateVideoScript(courseId, moduleId, document.id);
       setProgress(100);
