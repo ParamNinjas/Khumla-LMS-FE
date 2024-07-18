@@ -42,7 +42,6 @@ const TableRow = ({ document }: { document: any }) => {
   }, [refreshId]);
 
   const generateVideoScriptWithProgress = async (e: any) => {
-    setProgress(25);
     try {
       const [course, module, topic, topicElements] = await Promise.all([
         getCourse(courseId),
@@ -51,7 +50,8 @@ const TableRow = ({ document }: { document: any }) => {
         getKnowledgeElements(document.id),
       ]);
 
-      // const promiseArray = [];
+      const acc = Math.floor(100 / topicElements.length);
+      let total = 0;
       for (const element of topicElements) {
         const body = {
           moduleTitle: module.title,
@@ -70,16 +70,16 @@ const TableRow = ({ document }: { document: any }) => {
           `${wGenerateVideoScriptUrl}/topicElement/generateUpdateSingle`,
           body
         );
+        total += acc;
+        setProgress(total);
       }
-      setProgress(100);
-      console.log("Done")
+
       setTimeout(() => {
         setIsProgress(false);
         setIsGenerated(true);
       }, 5000);
     } catch (err) {
       setIsTryAgain(true);
-
       console.error(err);
     }
   };
