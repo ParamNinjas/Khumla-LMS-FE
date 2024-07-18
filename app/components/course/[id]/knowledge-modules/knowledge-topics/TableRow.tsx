@@ -1,151 +1,64 @@
-"use server";
-import { redirect } from "next/navigation";
-import { del, formDataEntriesArray, get, post, put } from "../utils";
-import { wCourseUrl, rCourseUrl, wGenerateVideoScriptUrl } from "./endpoints";
-import { Diagnostic } from "../logger/logger";
-import { FormObject } from "@/app/interfaces/questions";
-import { KnowledgeModule } from "@/app/interfaces/modules";
-import { getCourse } from "./course";
-import { getKnowledgeModule } from "./knowledge-module";
-import { getKnowledgeElements } from "./topic-elements";
+import Link from "next/link";
+import { useParams, usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import EditKnowledgeTopicModal from "./EditKnowledgeTopicModal";
+import DeleteKnowledgeTopicModal from "./DeleteKnowledgeTopicModal";
+import {
+  generateVideoScript,
+} from "@/app/lib/actions/knowledge-topic";
 
-export const createKnowledgeTopic = async (
-  courseId: string,
-  moduleId: string,
-  courseTitle: string,
-  moduleTitle: string,
-  isPractical: boolean,
-  formData: FormData
-) => {
-  const body = {
-    name: formData.get("name"),
-    description: formData.get("description"),
-    topicCode: formData.get("topicCode"),
-    lengthOfVideoScript: formData.get("lengthOfVideoScript") || 100,
-    moduleId,
+const TableRow = ({ document }: { document: any }) => {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const title = searchParams.get("title") || "";
+  const moduleTitle = searchParams.get("moduleTitle") || "";
+
+  const refreshId = searchParams.get("refreshId");
+  const [isEditModal, setIsEditModal] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [isProgress, setIsProgress] = useState(false);
+  const [isTryAgain, setIsTryAgain] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
+
+  const [isGenerated, setIsGenerated] = useState(document.isGenerated);
+
+  const arrUrl = pathname.split("/");
+  arrUrl.pop();
+  const url = arrUrl.join("/");
+  const { id: courseId, moduleId } = useParams<{
+    id: string;
+    moduleId: string;
+    topicId: string;
+  }>();
+
+  useEffect(() => {
+    setIsEditModal(false);
+  }, [refreshId]);
+
+  const generateVideoScriptWithProgress = async (e: any) => {
+    setProgress(25);
+    try {
+      await generateVideoScript(courseId, moduleId, document.id);
+      setProgress(100);
+      setTimeout(() => {
+        setIsProgress(false);
+        setIsGenerated(true);
+      }, 5000);
+    } catch (e: any) {
+      setIsTryAgain(true);
+    }
   };
 
-  const entries: any = formData.entries();
-  let knowledgeTopic = {} as KnowledgeModule;
-  try {
-    const data = await post(
-      `${wCourseUrl}/KnowledgeTopics/AddKnowledgeTopic`,
-      body
-    );
-    knowledgeTopic = data.data;
-    Diagnostic("SUCCESS ON POST, returning", data);
-
-    createTopicElements(entries, knowledgeTopic.id);
-  } catch (err) {
-    Diagnostic("ERROR ON POST, returning", err);
-    console.error(err);
-  }
-
-  const date = new Date().toString();
-
-  const url = isPractical
-    ? `/protected/admin/courses/${courseId}/practical-modules/${moduleId}/knowledge-topics?title=${courseTitle}&moduleTitle=${moduleTitle}&refreshId=${date}`
-    : `/protected/admin/courses/${courseId}/knowledge-modules/${moduleId}/knowledge-topics?title=${courseTitle}&moduleTitle=${moduleTitle}&refreshId=${date}`;
-  redirect(url);
-};
-
-export const updateKnowledgeTopic = async (
-  id: string,
-  description: string,
-  courseId: string,
-  moduleId: string,
-  courseTitle: string,
-  moduleTitle: string,
-  isPractical: boolean,
-  formData: FormData
-) => {
-  const body = {
-    name: formData.get("name"),
-    topicCode: formData.get("topicCode"),
-    lengthOfVideoScript: formData.get("lengthOfVideoScript") || 0,
-    id,
-    moduleId,
-    description,
-  };
-
-  try {
-    const resp = await put(
-      `${wCourseUrl}/KnowledgeTopics/UpdateKnowledgeTopic`,
-      body
-    );
-
-    Diagnostic("SUCCESS ON PUT, returning", resp);
-  } catch (err) {
-    Diagnostic("ERROR ON PUT, returning", err);
-  }
-
-  const date = new Date().toString();
-  const url = isPractical
-    ? `/protected/admin/courses/${courseId}/practical-modules/${moduleId}/knowledge-topics?title=${courseTitle}&moduleTitle=${moduleTitle}&refreshId=${date}`
-    : `/protected/admin/courses/${courseId}/knowledge-modules/${moduleId}/knowledge-topics?title=${courseTitle}&moduleTitle=${moduleTitle}&refreshId=${date}`;
-  redirect(url);
-};
-
-export const getKnowledgeTopics = async (moduleId: string) => {
-  try {
-    const resp = await get(
-      `${rCourseUrl}/KnowledgeTopics/GetKnowledgeTopics/${moduleId}`
-    );
-    const data = resp.data;
-    Diagnostic("SUCCESS ON GET, returning", data);
-    return data;
-  } catch (err) {
-    Diagnostic("ERROR ON GET, returning", err);
-    console.error(err);
-  }
-};
-
-export const getKnowledgeTopic = async (topicId: string) => {
-  try {
-    const resp = await get(
-      `${rCourseUrl}/KnowledgeTopics/GetKnowledgeTopic/${topicId}`
-    );
-    const data = resp.data;
-    Diagnostic("SUCCESS ON GET, returning", data);
-    return data;
-  } catch (err) {
-    Diagnostic("ERROR ON GET, returning", err);
-    console.error(err);
-  }
-};
-
-export const createTopicElements = async (entries: any, topicId: string) => {
-  const objArray = formDataEntriesArray(entries);
-
-  for (const obj of objArray) {
-    if (obj.elementCode == "" || obj.title == "") continue;
-    const body: FormObject = {
-      ...obj,
-      topicId,
-    };
-
-    await post(`${wCourseUrl}/TopicElements/AddTopicElement`, body);
-  }
-  Diagnostic("SUCCESS ON POST, returning", "Success !");
-};
-
-export const generateVideoScript = async (
-  courseId: string,
-  moduleId: string,
-  topicId: string
-) => {
-  try {
+  /* const generateVideoScriptWithProgress = async (e: any) => {
+    e.preventDefault();
     const [course, module, topic, topicElements] = await Promise.all([
       getCourse(courseId),
       getKnowledgeModule(moduleId),
-      getKnowledgeTopic(topicId),
-      getKnowledgeElements(topicId),
+      getKnowledgeTopic(document.id),
+      getKnowledgeElements(document.id),
     ]);
 
-    // const promiseArray = [];
     for (const element of topicElements) {
-      if (element.elementCode == "" || element.title == "") continue;
-
       const body = {
         moduleTitle: module.title,
         moduleDescription: module.description,
@@ -162,25 +75,190 @@ export const generateVideoScript = async (
       await post(
         `${wGenerateVideoScriptUrl}/topicElement/generateUpdateSingle`,
         body
-      );
+      ); 
     }
-  } catch (err) {
-    Diagnostic("ERROR ON POST, returning", err);
-    console.error(err);
-  }
+
+    const body = { ...topic, isGenerated: true };
+    await put(`${wCourseUrl}/KnowledgeTopics/UpdateKnowledgeTopic`, body);
+
+
+    const data = JSON.stringify({
+      documentId: document.id,
+      documentTitle: document.title,
+      courseId,
+      moduleId,
+      title,
+    });
+
+    setProgress(25);
+    fetch("/api/generate-video-script", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: data,
+    })
+      .then((response) => {
+        const reader = response.body?.getReader();
+        if (!reader) {
+          throw new Error("Response body is null");
+        }
+        // Get the size of the blob
+        let loaded = 0,
+          estimatedTotal = 0;
+
+        const push = async () => {
+          if (!reader) {
+            throw new Error("Reader is undefined");
+          }
+          const { done, value } = await reader.read();
+          if (done) {
+            console.log("Done");
+            return;
+          }
+
+          loaded += value.length;
+          estimatedTotal += value.length; // Estimate total size incrementally
+
+          const progress = Math.min(
+            Math.round((loaded / estimatedTotal) * 100),
+            100
+          );
+          setProgress(progress);
+          push();
+        };
+
+        push().catch((err) => {
+          console.error("Stream reading error:", err);
+          throw err;
+        });
+
+        setProgress(100);
+        setTimeout(() => {
+          setIsProgress(false);
+          setIsGenerated(true);
+        }, 5000);
+      })
+      .catch((error) => {
+        setIsTryAgain(true);
+        console.log("Error Generating Video Script");
+      });
+  }; */
+
+  return (
+    <>
+      <EditKnowledgeTopicModal
+        documentName={document.name}
+        documentId={document.id}
+        data={document}
+        show={isEditModal}
+        onHide={() => setIsEditModal(false)}
+      />
+
+      <DeleteKnowledgeTopicModal
+        id={document.id}
+        url={url}
+        show={deleteModal}
+        onHide={() => setDeleteModal(false)}
+      />
+
+      <tr className="selected">
+        <td style={{ width: "250px" }} className="py-0">
+          <div className="d-flex align-items-center justify-content-center">
+            <p
+              className="text-center my-2"
+              style={{
+                textOverflow: "ellipsis",
+                overflow: "hidden",
+                width: "250px",
+              }}
+            >
+              {document.topicCode}
+            </p>
+          </div>
+        </td>
+        <td style={{ width: "300px" }} className="py-0">
+          <p
+            className="text-center my-2"
+            style={{
+              textOverflow: "ellipsis",
+              overflow: "hidden",
+              width: "300px",
+            }}
+          >
+            {document.name}
+          </p>
+        </td>
+        <td style={{ width: "400px" }} className="py-0">
+          <div className="text-center my-2 w-100">
+            {isProgress ? (
+              <button
+                style={{ width: "185px" }}
+                type="button"
+                className="btn btn-outline-success btn-sm rounded-pill py-1 px-3 w-100"
+              >
+                <div className="progress-container w-100 my-1">
+                  <div className="progress-bar w-100">
+                    <div
+                      className="progress-bar-fill"
+                      style={{
+                        width: `${progress}%`,
+                      }}
+                    ></div>
+                  </div>
+                </div>
+              </button>
+            ) : (
+              <button
+                style={{ width: "185px" }}
+                type="button"
+                onClick={(e) => {
+                  try {
+                    e.preventDefault();
+                    setIsProgress(true);
+                    generateVideoScriptWithProgress(e);
+                  } catch (e: any) {
+                    console.log("Error Generating Video Script");
+                  }
+                }}
+                className="btn btn-outline-success btn-sm rounded-pill py-1 px-3 w-100"
+              >
+                {isTryAgain
+                  ? "Network Error: Try Again"
+                  : isGenerated
+                  ? "Regenerate"
+                  : "Generate Video Script"}
+              </button>
+            )}
+            {isTryAgain}
+          </div>
+        </td>
+        <td style={{ width: "700px" }} className="py-0">
+          <div className="d-flex justify-content-center">
+            <Link href="#" onClick={() => setIsEditModal(true)}>
+              <i className="material-icons icon-holder--outline-success rounded-lg mr-8pt">
+                edit
+              </i>
+            </Link>
+            <Link
+              className=""
+              prefetch={true}
+              href={`${url}/knowledge-topic/${document.id}/topic-elements?title=${title}&moduleTitle=${moduleTitle}&topicTitle=${document.name}`}
+            >
+              <i className="material-icons icon-holder--outline-success rounded-lg mr-8pt">
+                visibility
+              </i>
+            </Link>
+            <Link href="#" type="button" onClick={() => setDeleteModal(true)}>
+              <i className="material-icons icon-holder--outline-success rounded-lg mr-8pt">
+                delete
+              </i>
+            </Link>
+          </div>
+        </td>
+      </tr>
+    </>
+  );
 };
 
-export const deleteKnowledgeTopic = async (topicId: string) => {
-  try {
-    const resp = await del(
-      `${wCourseUrl}/KnowledgeTopics/DeleteKnowledgeTopic/${topicId}`
-    );
-    const data = resp.data;
-    Diagnostic("SUCCESS ON DELETE, returning", data);
-    return data;
-  } catch (err) {
-    Diagnostic("ERROR ON DELETE, returning", err);
-
-    console.error(err);
-  }
-};
+export default TableRow;
