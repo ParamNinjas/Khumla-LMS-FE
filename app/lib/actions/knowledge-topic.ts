@@ -1,10 +1,13 @@
 "use server";
 import { redirect } from "next/navigation";
 import { del, formDataEntriesArray, get, post, put } from "../utils";
-import { wCourseUrl, rCourseUrl } from "./endpoints";
+import { wCourseUrl, rCourseUrl, wGenerateVideoScriptUrl } from "./endpoints";
 import { Diagnostic } from "../logger/logger";
 import { FormObject } from "@/app/interfaces/questions";
 import { KnowledgeModule } from "@/app/interfaces/modules";
+import { getCourse } from "./course";
+import { getKnowledgeModule } from "./knowledge-module";
+import { getKnowledgeElements } from "./topic-elements";
 
 export const createKnowledgeTopic = async (
   courseId: string,
@@ -124,6 +127,47 @@ export const createTopicElements = async (entries: any, topicId: string) => {
     await post(`${wCourseUrl}/TopicElements/AddTopicElement`, body);
   }
   Diagnostic("SUCCESS ON POST, returning", "Success !");
+};
+
+export const generateVideoScript = async (
+  courseId: string,
+  moduleId: string,
+  topicId: string
+) => {
+  try {
+    const [course, module, topic, topicElements] = await Promise.all([
+      getCourse(courseId),
+      getKnowledgeModule(moduleId),
+      getKnowledgeTopic(topicId),
+      getKnowledgeElements(topicId),
+    ]);
+
+    // const promiseArray = [];
+    for (const element of topicElements) {
+      if (element.elementCode == "" || element.title == "") continue;
+
+      const body = {
+        moduleTitle: module.title,
+        moduleDescription: module.description,
+        topicTitle: topic.name,
+        topicId: topic.id,
+        topicDescription: topic.description,
+        lengthOfVideoScript: topic.lengthOfVideoScript,
+        tone: course.videoScriptTone,
+        elementTitle: element.title,
+        elementCode: element.elementCode,
+        elementId: element.id,
+      };
+
+      await post(
+        `${wGenerateVideoScriptUrl}/topicElement/generateUpdateSingle`,
+        body
+      );
+    }
+  } catch (err) {
+    Diagnostic("ERROR ON POST, returning", err);
+    console.error(err);
+  }
 };
 
 export const deleteKnowledgeTopic = async (topicId: string) => {
